@@ -1,188 +1,258 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
+<title>Unity Pharmacy Store</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unity Pharmacy</title>
 
 <style>
-body {
-  font-family: Arial;
-  margin: 0;
-  background: #f2f2f2;
+body{margin:0;font-family:Arial;background:#f3f4f6}
+
+/* HEADER */
+.header{
+background:#131921;color:white;text-align:center;padding:15px;
 }
 
-header {
-  background: #0a7cff;
-  color: white;
-  padding: 20px;
-  text-align: center;
+.search{
+width:90%;padding:10px;margin-top:10px;border-radius:5px;border:none;
 }
 
-.container {
-  padding: 15px;
+/* GRID */
+.container{padding:10px}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:10px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
+.card{
+background:white;padding:10px;border-radius:10px;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
 }
 
-.card {
-  background: white;
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+.price{color:#0a7cff;font-weight:bold}
+
+.btn{
+display:block;margin-top:8px;
+background:#ff9900;color:black;
+padding:8px;text-align:center;
+border-radius:5px;text-decoration:none;font-weight:bold;
 }
 
-.card h4 {
-  margin: 0 0 10px;
+/* ADMIN */
+.adminBtn{
+position:fixed;top:10px;right:10px;
+background:black;color:white;
+padding:10px;border-radius:5px;cursor:pointer;
 }
 
-.card p {
-  font-size: 14px;
-  white-space: pre-line;
+.adminPanel{
+display:none;
+position:fixed;top:60px;right:10px;
+background:white;padding:15px;
+border-radius:10px;width:220px;
 }
 
-.btn {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 8px;
-  background: #25D366;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
+.adminPanel input{
+width:100%;padding:8px;margin:5px 0;
 }
 
-.category {
-  margin-top: 25px;
+/* CART */
+.cart{
+position:fixed;left:10px;bottom:70px;
+background:white;padding:10px;
+border-radius:10px;
+width:200px;
+box-shadow:0 2px 10px rgba(0,0,0,0.2);
 }
 
-.whatsapp {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  color: white;
-  padding: 15px;
-  border-radius: 50px;
-  text-decoration: none;
+.checkout{
+background:#25D366;color:white;
+padding:8px;text-align:center;
+border-radius:5px;
+display:block;
+margin-top:8px;
+text-decoration:none;
+}
+
+/* WHATSAPP FLOAT (BOTTOM) */
+.whatsapp{
+position:fixed;
+bottom:10px;
+right:10px;
+background:#25D366;
+color:white;
+padding:15px;
+border-radius:50px;
+text-decoration:none;
+font-size:20px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>UNITY PHARMACY 🏥💊</h1>
-<p>Trusted Source for Quality Medical & Wellness Products</p>
-</header>
+<div class="header">
+<h2>UNITY PHARMACY 🏥💊</h2>
+<p>Wholesale & Retail Store</p>
 
+<input class="search" id="search" onkeyup="filter()" placeholder="Search products...">
+
+<p style="font-size:12px">
+✉️ unitywholesaledelivery@gmail.com
+</p>
+</div>
+
+<!-- ADMIN -->
+<div class="adminBtn" onclick="toggleAdmin()">Admin</div>
+
+<div class="adminPanel" id="adminPanel">
+<h4>Add Product</h4>
+<input id="name" placeholder="Product name">
+<input id="price" placeholder="Price">
+<button onclick="addProduct()">Add</button>
+</div>
+
+<!-- PRODUCTS -->
 <div class="container">
-
-<div class="category">
-<h2>ALL PRODUCTS</h2>
-<div class="grid">
-
-<div class="card">
-<h4>ADAMAN</h4>
-<p>10mg × 10 vials — $120</p>
-<a class="btn" href="https://wa.me/14093608452?text=I want ADAMAN">Buy Now</a>
+<div class="grid" id="products"></div>
 </div>
 
-<div class="card">
-<h4>PE 22-28</h4>
-<p>5mg × 10 vials — $40
-10mg × 10 vials — $73</p>
-<a class="btn" href="https://wa.me/14093608452?text=I want PE 22-28">Buy Now</a>
+<!-- CART -->
+<div class="cart">
+<h4>🛒 Cart</h4>
+<div id="cart"></div>
+<a class="checkout" onclick="checkout()">Checkout WhatsApp</a>
 </div>
 
-<div class="card">
-<h4>PINEALON</h4>
-<p>5mg × 10 vials — $40
-10mg × 10 vials — $60
-20mg × 10 vials — $94</p>
-<a class="btn" href="https://wa.me/14093608452?text=I want PINEALON">Buy Now</a>
-</div>
-
-<div class="card">
-<h4>PNC 27</h4>
-<p>5mg × 10 vials — $90
-10mg × 10 vials — $155</p>
-<a class="btn" href="https://wa.me/14093608452?text=I want PNC 27">Buy Now</a>
-</div>
-
-<div class="card">
-<h4>P21 (P021)</h4>
-<p>5mg × 10 vials — $295
-10mg × 10 vials — $550</p>
-<a class="btn" href="https://wa.me/14093608452?text=I want P21">Buy Now</a>
-</div>
-
-<div class="card">
-<h4>LIRAGLUTIDE</h4>
-<p>5mg × 10 vials — $79
-10mg × 10 vials — $110
-30mg × 10 vials — $285</p>
-<a class="btn" href="https://wa.me/14093608452?text=I want LIRAGLUTIDE">Buy Now</a>
-</div>
-
-<div class="card">
-<h4>Semaglutide</h4>
-<p>5mg × 10 vials — $45
-10mg × 10 vials — $60
-15mg × 10 vials — $65
-20mg × 10 vials — $80
-30mg × 10 vials — $110</p>
-<a class="btn" href="https://wa.me/14093608452?text=I want Semaglutide">Buy Now</a>
-</div>
-
-<div class="card">
-<h4>Tirzepatide</h4>
-<p>5mg × 10 vials — $92
-10mg × 10 vials — $107
-20mg × 10 vials — $132
-30mg × 10 vials — $155
-40mg × 10 vials — $180
-50mg × 10 vials — $210
-60mg × 10 vials — $270</p>
-<a class="btn" href="https://wa.me/14093608452?text=I want Tirzepatide">Buy Now</a>
-</div>
-
-<div class="card">
-<h4>Retatrutide</h4>
-<p>5mg × 10 vials — $75
-10mg × 10 vials — $95
-15mg × 10 vials — $120
-20mg × 10 vials — $140
-30mg × 10 vials — $210
-60mg × 10 vials — $300</p>
-<a class="btn" href="https://wa.me/14093608452?text=I want Retatrutide">Buy Now</a>
-</div>
-
-<div class="card">
-<h4>Glutathione</h4>
-<p>1500mg × 10 vials — $85
-500mg × 10 vials — $50</p>
-<a class="btn" href="https://wa.me/14093608452?text=I want Glutathione">Buy Now</a>
-</div>
-
-<div class="card">
-<h4>HGH (Somatropin)</h4>
-<p>15 IU × 10 vials — $75
-24 IU × 10 vials — $113
-36 IU × 10 vials — $163
-40 IU × 10 vials — $185</p>
-<a class="btn" href="https://wa.me/14093608452?text=I want HGH">Buy Now</a>
-</div>
-
-</div>
-</div>
-
-</div>
-
+<!-- WHATSAPP BUTTON (BOTTOM FIXED) -->
 <a class="whatsapp" href="https://wa.me/14093608452">💬</a>
+
+<script>
+
+/* FULL YOUR COMPLETE STORE DATA (ALL INCLUDED) */
+let products = [
+
+/* WEIGHT */
+{name:"Semaglutide",price:"$45-$110"},
+{name:"Tirzepatide",price:"$92-$270"},
+{name:"Retatrutide",price:"$75-$300"},
+{name:"Cagrilintide",price:"$110-$190"},
+{name:"Liraglutide",price:"$79-$285"},
+
+/* PEPTIDES */
+{name:"CJC-1295",price:"$75-$275"},
+{name:"Ipamorelin",price:"$40-$60"},
+{name:"GHRP-2 Acetate",price:"$33-$58"},
+{name:"GHRP-6 Acetate",price:"$33-$43"},
+{name:"HGH",price:"$75-$185"},
+{name:"HGH Fragment",price:"$32-$201"},
+{name:"BPC-157",price:"$40-$90"},
+{name:"TB500",price:"$72-$121"},
+
+/* WELLNESS */
+{name:"Glutathione",price:"$50-$85"},
+{name:"NAD+",price:"$50-$80"},
+{name:"Epithalon",price:"$45-$135"},
+{name:"GHK-CU",price:"$40-$55"},
+{name:"AHK-CU",price:"$40-$55"},
+
+/* ADVANCED */
+{name:"FOXO4-DRI",price:"$310"},
+{name:"LL37",price:"$98"},
+{name:"SS-31",price:"$100-$280"},
+{name:"MOTS-C",price:"$66-$175"},
+
+/* MEDICAL */
+{name:"Botulinum Toxin",price:"$77"},
+{name:"EPO",price:"$58"},
+{name:"HCG",price:"$50-$140"},
+
+/* ADDITIONAL YOUR FULL LIST */
+{name:"ADAMAN",price:"$120"},
+{name:"PE 22-28",price:"$40-$73"},
+{name:"PINEALON",price:"$40-$94"},
+{name:"PNC 27",price:"$90-$155"},
+{name:"P21",price:"$295-$550"},
+{name:"Semax",price:"$50-$70"},
+{name:"MGF",price:"$58"},
+{name:"PEG MGF",price:"$80"},
+{name:"Sermorelin",price:"$70-$121"},
+{name:"AOD9604",price:"$85-$165"},
+{name:"IGF-1 LR3",price:"$40-$180"},
+{name:"Selank",price:"$45-$120"},
+{name:"Tesamorelin",price:"$80-$280"},
+{name:"Kisspeptin-10",price:"$55-$80"},
+{name:"Thymalin",price:"$65"},
+{name:"Thymosin Alpha-1",price:"$90-$160"},
+{name:"Cagrilintide + Semaglutide",price:"$130"},
+{name:"Retatrutide + Cagrilintide",price:"$150"},
+{name:"VIP",price:"$90-$130"},
+{name:"MT-1",price:"$52"},
+{name:"MT-2",price:"$52"},
+{name:"PT-141",price:"$60"},
+{name:"DSIP",price:"$45-$70"},
+{name:"Oxytocin",price:"$30-$70"}
+
+];
+
+let cart=[];
+
+/* RENDER */
+function render(list){
+document.getElementById("products").innerHTML =
+list.map((p,i)=>`
+<div class="card">
+<h4>${p.name}</h4>
+<p class="price">${p.price}</p>
+<button class="btn" onclick="add(${i})">Add to Cart</button>
+</div>
+`).join("");
+}
+
+/* CART */
+function add(i){
+cart.push(products[i]);
+updateCart();
+}
+
+function updateCart(){
+document.getElementById("cart").innerHTML =
+cart.map(c=>"• "+c.name).join("<br>");
+}
+
+/* SEARCH */
+function filter(){
+let v=document.getElementById("search").value.toLowerCase();
+render(products.filter(p=>p.name.toLowerCase().includes(v)));
+}
+
+/* CHECKOUT */
+function checkout(){
+let msg="Unity Pharmacy Order:%0A";
+cart.forEach(c=>msg+=c.name+"%0A");
+window.open("https://wa.me/14093608452?text="+msg);
+}
+
+/* ADMIN */
+function toggleAdmin(){
+let a=document.getElementById("adminPanel");
+a.style.display=a.style.display==="block"?"none":"block";
+}
+
+function addProduct(){
+let n=document.getElementById("name").value;
+let p=document.getElementById("price").value;
+if(n && p){
+products.push({name:n,price:p});
+render(products);
+alert("Added!");
+}
+}
+
+render(products);
+
+</script>
 
 </body>
 </html>
