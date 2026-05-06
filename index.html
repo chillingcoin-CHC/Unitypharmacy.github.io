@@ -133,67 +133,175 @@ font-size:20px;
 /* FULL YOUR COMPLETE STORE DATA (ALL INCLUDED) */
 let products = [
 
-/* WEIGHT */
-{name:"Semaglutide",price:"$45-$110"},
-{name:"Tirzepatide",price:"$92-$270"},
-{name:"Retatrutide",price:"$75-$300"},
-{name:"Cagrilintide",price:"$110-$190"},
-{name:"Liraglutide",price:"$79-$285"},
+/* ADAMAN */
+{name:"ADAMAN 10mg x10 vials", price:"$120"},
 
-/* PEPTIDES */
-{name:"CJC-1295",price:"$75-$275"},
-{name:"Ipamorelin",price:"$40-$60"},
-{name:"GHRP-2 Acetate",price:"$33-$58"},
-{name:"GHRP-6 Acetate",price:"$33-$43"},
-{name:"HGH",price:"$75-$185"},
-{name:"HGH Fragment",price:"$32-$201"},
-{name:"BPC-157",price:"$40-$90"},
-{name:"TB500",price:"$72-$121"},
+/* PE 22-28 */
+{name:"PE 22-28 5mg x10", price:"$40"},
+{name:"PE 22-28 10mg x10", price:"$73"},
+
+/* PINEALON */
+{name:"PINEALON 5mg x10", price:"$40"},
+{name:"PINEALON 10mg x10", price:"$60"},
+{name:"PINEALON 20mg x10", price:"$94"},
+
+/* PNC 27 */
+{name:"PNC 27 5mg x10", price:"$90"},
+{name:"PNC 27 10mg x10", price:"$155"},
+
+/* P21 */
+{name:"P21 5mg x10", price:"$295"},
+{name:"P21 10mg x10", price:"$550"},
+
+/* MATRIYL */
+{name:"MATRIYL 10mg x10", price:"$40"},
+
+/* LIRAGLUTIDE */
+{name:"LIRAGLUTIDE 5mg x10", price:"$79"},
+{name:"LIRAGLUTIDE 10mg x10", price:"$110"},
+{name:"LIRAGLUTIDE 30mg x10", price:"$285"},
+
+/* WATER */
+{name:"WATER 10ml x10", price:"$11"},
+{name:"ACETIC ACID WATER 10ml x10", price:"$11"},
+{name:"BAC WATER 10ml x10", price:"$13"},
+
+/* L-CARNITINE */
+{name:"L-CARNITINE 600mg 10ml", price:"$65"},
+
+/* LEMON BOTTLE */
+{name:"LEMON BOTTLE 10ml x10", price:"$60"},
+
+/* ADIPOTIDE */
+{name:"ADIPOTIDE 2mg x10", price:"$75"},
+{name:"ADIPOTIDE 5mg x10", price:"$140"},
+{name:"ADIPOTIDE 10mg x10", price:"$210"},
+
+/* SEMAX */
+{name:"SEMAX 5mg x10", price:"$50"},
+{name:"SEMAX 10mg x10", price:"$70"},
+
+/* GHRP */
+{name:"GHRP-2 5mg x10", price:"$33"},
+{name:"GHRP-2 10mg x10", price:"$43"},
+{name:"GHRP-2 15mg x10", price:"$58"},
+
+{name:"GHRP-6 5mg x10", price:"$33"},
+{name:"GHRP-6 10mg x10", price:"$43"},
+
+/* CJC */
+{name:"CJC-1295 5mg", price:"$75"},
+{name:"CJC-1295 10mg", price:"$120"},
+{name:"CJC-1295 + Ipamorelin", price:"$110"},
+
+{name:"CJC-1295 DAC 2mg", price:"$70"},
+{name:"CJC-1295 DAC 5mg", price:"$140"},
+{name:"CJC-1295 DAC 10mg", price:"$275"},
+
+/* OTHER CORE PEPTIDES */
+{name:"MGF 2mg", price:"$58"},
+{name:"PEG MGF 2mg", price:"$80"},
+
+{name:"Sermorelin 5mg", price:"$70"},
+{name:"Sermorelin 10mg", price:"$121"},
+
+{name:"HCG 2000 IU", price:"$50"},
+{name:"HCG 5000 IU", price:"$72"},
+{name:"HCG 10000 IU", price:"$140"},
+
+{name:"AOD9604 5mg", price:"$85"},
+{name:"AOD9604 10mg", price:"$165"},
+
+{name:"IGF-1 LR3 0.1mg", price:"$40"},
+{name:"IGF-1 LR3 1mg", price:"$180"},
+
+{name:"IPAMORELIN 5mg", price:"$40"},
+{name:"IPAMORELIN 10mg", price:"$60"},
+
+/* WEIGHT LOSS */
+{name:"SEMAGLUTIDE 5mg", price:"$45"},
+{name:"SEMAGLUTIDE 10mg", price:"$60"},
+{name:"SEMAGLUTIDE 15mg", price:"$65"},
+{name:"SEMAGLUTIDE 20mg", price:"$80"},
+{name:"SEMAGLUTIDE 30mg", price:"$110"},
+
+{name:"TIRZEPATIDE 5mg", price:"$92"},
+{name:"TIRZEPATIDE 10mg", price:"$107"},
+{name:"TIRZEPATIDE 20mg", price:"$132"},
+{name:"TIRZEPATIDE 30mg", price:"$155"},
+{name:"TIRZEPATIDE 40mg", price:"$180"},
+{name:"TIRZEPATIDE 50mg", price:"$210"},
+{name:"TIRZEPATIDE 60mg", price:"$270"},
+
+{name:"RETATRUTIDE 5mg", price:"$75"},
+{name:"RETATRUTIDE 10mg", price:"$95"},
+{name:"RETATRUTIDE 15mg", price:"$120"},
+{name:"RETATRUTIDE 20mg", price:"$140"},
+{name:"RETATRUTIDE 30mg", price:"$210"},
+{name:"RETATRUTIDE 60mg", price:"$300"},
 
 /* WELLNESS */
-{name:"Glutathione",price:"$50-$85"},
-{name:"NAD+",price:"$50-$80"},
-{name:"Epithalon",price:"$45-$135"},
-{name:"GHK-CU",price:"$40-$55"},
-{name:"AHK-CU",price:"$40-$55"},
+{name:"SELANK 5mg", price:"$45"},
+{name:"SELANK 10mg", price:"$75"},
+{name:"SELANK 30mg", price:"$120"},
+
+{name:"TESAMORELIN 5mg", price:"$80"},
+{name:"TESAMORELIN 10mg", price:"$150"},
+{name:"TESAMORELIN 20mg", price:"$280"},
+
+{name:"SS-31 10mg", price:"$100"},
+{name:"SS-31 50mg", price:"$280"},
+
+{name:"GHK-CU 50mg", price:"$40"},
+{name:"GHK-CU 100mg", price:"$55"},
+
+{name:"AHK-CU 50mg", price:"$40"},
+{name:"AHK-CU 100mg", price:"$55"},
 
 /* ADVANCED */
-{name:"FOXO4-DRI",price:"$310"},
-{name:"LL37",price:"$98"},
-{name:"SS-31",price:"$100-$280"},
-{name:"MOTS-C",price:"$66-$175"},
+{name:"KISSPEPTIN-10 5mg", price:"$55"},
+{name:"KISSPEPTIN-10 10mg", price:"$80"},
 
-/* MEDICAL */
-{name:"Botulinum Toxin",price:"$77"},
-{name:"EPO",price:"$58"},
-{name:"HCG",price:"$50-$140"},
+{name:"THYMALIN 10mg", price:"$65"},
+{name:"THYMOSIN ALPHA-1", price:"$90-$160"},
 
-/* ADDITIONAL YOUR FULL LIST */
-{name:"ADAMAN",price:"$120"},
-{name:"PE 22-28",price:"$40-$73"},
-{name:"PINEALON",price:"$40-$94"},
-{name:"PNC 27",price:"$90-$155"},
-{name:"P21",price:"$295-$550"},
-{name:"Semax",price:"$50-$70"},
-{name:"MGF",price:"$58"},
-{name:"PEG MGF",price:"$80"},
-{name:"Sermorelin",price:"$70-$121"},
-{name:"AOD9604",price:"$85-$165"},
-{name:"IGF-1 LR3",price:"$40-$180"},
-{name:"Selank",price:"$45-$120"},
-{name:"Tesamorelin",price:"$80-$280"},
-{name:"Kisspeptin-10",price:"$55-$80"},
-{name:"Thymalin",price:"$65"},
-{name:"Thymosin Alpha-1",price:"$90-$160"},
-{name:"Cagrilintide + Semaglutide",price:"$130"},
-{name:"Retatrutide + Cagrilintide",price:"$150"},
-{name:"VIP",price:"$90-$130"},
-{name:"MT-1",price:"$52"},
-{name:"MT-2",price:"$52"},
-{name:"PT-141",price:"$60"},
-{name:"DSIP",price:"$45-$70"},
-{name:"Oxytocin",price:"$30-$70"}
+{name:"FOXO4-DRI", price:"$310"},
+{name:"LL37", price:"$98"},
 
+{name:"GLUTATHIONE 1500mg", price:"$85"},
+{name:"GLUTATHIONE 500mg", price:"$50"},
+
+/* SPECIALS */
+{name:"BOTULINUM TOXIN", price:"$77"},
+{name:"EPO 3000 IU", price:"$58"},
+{name:"CEREBROLYSIN", price:"$61"},
+
+{name:"CAGRILINTIDE", price:"$110-$190"},
+{name:"MAZDTUTIDE", price:"$99-$190"},
+
+{name:"VIP 5mg", price:"$90"},
+{name:"VIP 10mg", price:"$130"},
+
+{name:"HGH 15 IU", price:"$75"},
+{name:"HGH 24 IU", price:"$113"},
+{name:"HGH 36 IU", price:"$163"},
+{name:"HGH 40 IU", price:"$185"},
+
+{name:"BPC-157", price:"$40-$90"},
+{name:"TB500", price:"$72-$121"},
+
+{name:"MOTS-C", price:"$66-$175"},
+{name:"NAD+", price:"$50-$80"},
+
+{name:"MT-1", price:"$52"},
+{name:"MT-2", price:"$52"},
+
+{name:"PT-141", price:"$60"},
+{name:"DSIP", price:"$45-$70"},
+
+{name:"OXITOCIN", price:"$30-$70"},
+
+{name:"EPITHALON", price:"$45-$135"}
 ];
 
 let cart=[];
